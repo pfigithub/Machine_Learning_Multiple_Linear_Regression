@@ -16,3 +16,13 @@ cdf.head(9)
 msk = np.random.rand(len(df)) < 0.8
 train = cdf[msk]
 test = cdf[~msk]
+
+
+# multiple regression model
+from sklearn import linear_model
+regr = linear_model.LinearRegression()
+x = np.asanyarray(train[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB']])
+y = np.asanyarray(train[['CO2EMISSIONS']])
+regr.fit (x, y)
+# The coefficients
+print ('Coefficients: ', regr.coef_)
