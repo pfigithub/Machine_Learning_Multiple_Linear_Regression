@@ -11,3 +11,8 @@ df.head()
 # selecting features
 cdf = df[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_CITY','FUELCONSUMPTION_HWY','FUELCONSUMPTION_COMB','CO2EMISSIONS']]
 cdf.head(9)
+
+# spliting data
+msk = np.random.rand(len(df)) < 0.8
+train = cdf[msk]
+test = cdf[~msk]
